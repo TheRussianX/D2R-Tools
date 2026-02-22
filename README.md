@@ -1,8 +1,8 @@
 Sometimes a .model file will include 2 meshes instead of one, so to export the character without missing components I use the following parameters:
-A.Noesis GR2 plugin settings:
-ANIMATION_MODE = 2 (only the animations from the model file, which are none)
-SKELETON_LOAD = 1 
-MERGE_SCENE = 1 (to merge all meshes in the same scene)
+A.Noesis GR2 plugin settings: \n
+ANIMATION_MODE = 2 (only the animations from the model file, which are none) \n
+SKELETON_LOAD = 1 \n
+MERGE_SCENE = 1 (to merge all meshes in the same scene) \n
 B.Noesis batch export:
 Input extension: model
 Output extension: fbx
