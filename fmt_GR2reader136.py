@@ -5,8 +5,13 @@
 # can be found https://github.com/kangcliff/Age-of-Empires-III
 
 
-# Version 1.3.5
-# Last updated 14.06.2021
+# Version 1.3.6 change log
+# Last updated 10.02.2026
+# Automatically loads the skeleton and animation file if the folder structure and naming is respected
+# Prompt to ask user the track number for the animations
+# Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks
+# Automatically creates a text file with the total number of animation tracks after the first load of model and anim file
+# Automatically creates a list of loaded animations names the way they were stored in combined.animations, the list will continuously append new loaded animations
 
 
 from math import *
@@ -5294,3 +5299,4 @@ def noepyLoadModel(data, mdlList):
             mdlList.append(mdl)
 
         return 1 
+
