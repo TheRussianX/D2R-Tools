@@ -45,3 +45,18 @@ output: fbx
 output path: $inpath$\$inname$.$outext$
 
 When you import the FBX with animations in Blender always set scale to 80. I always load all the animations in the same Blender scene and rename the actions using the exported animation name list and Blender script.
+
+Change log for Noesis GR2 plugin for version 136:
+
+1. Automatically loads the skeleton and animation file if the folder structure and naming is respected :
+2. 
+ \[characterName]\torso_lod0.model
+
+\[characterName]\skeleton\[characterName].skeleton
+
+\[characterName]\animation\combined.animations
+
+2.Prompt to ask user the track number for the animations;
+3.Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks, useful for Noesis batch processing;
+4.Automatically creates a text file with the total number of animation tracks - after the user specify a track number (to be safe always use 0 for the first time);
+5.Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.
