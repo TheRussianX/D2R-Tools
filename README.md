@@ -36,5 +36,5 @@ Change log for Noesis GR2 plugin for version 136:
 \[characterName]\animation\combined.animations  
 2.Prompt to ask user the track number for the animations  
 3.Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks, useful for Noesis batch processing.  
-4.Automatically creates a text file with the total number of animation tracks - after the user specify a track number (the prompt will tell you the max number of tracks).
+4.Automatically creates a text file with the total number of animation tracks - after the user specify a track number (the prompt will tell you the max number of tracks).  
 5.Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.
