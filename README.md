@@ -27,7 +27,8 @@ output: fbx
 output path: $inpath$\$inname$.$outext$  
 Recursive
 
-When you import the FBX with animations in Blender always set scale to 80. I always load all the animations in the same Blender scene and rename the actions using the exported animation name list and Blender script.  
+When you import the FBX with animations in Blender always set scale to 80. I always load all the animations in the same Blender scene and rename the actions using the exported animation name list and Blender script. 
+If you only convert texture files to PNG using Noesis it will break the Normal maps (missing blue channel). When exporting model and texture at the same time the Normal maps will be fine, but there will be no ORM and SSS maps.  
 
 Change log for Noesis GR2 plugin for version 136:  
 1. Automatically loads the skeleton and animation file if the folder structure and naming is respected :  
