@@ -11,7 +11,7 @@ Additional parameters -fbxtexext .png -scale 80 -fbxmultitake
 Output path $inpath$\$inname$.$outext$  
 Recursive  
 
-I used scale 80 to have in Blender models between 1.65m-1.9m (humans) and 4m high (monsters)  
+I used scale 80 to have in Blender models between 1.65m-1.9m (humans) and 4m high (monsters). Always keep at least the Normal maps exported along model, because they will also have the blue channel (that is missing if you only convert the textures).  
 
 To batch export the animations:  
 A.Generate for each animation track a Noesis scene file using the Python script, you have to know the total number of tracks  
