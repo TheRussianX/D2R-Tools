@@ -9,3 +9,5 @@ for act in actions:
    act.name = data[i]
    print(act.name)
    i += 1
+   if (i > len(actions)):
+       break
