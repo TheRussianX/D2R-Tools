@@ -1,4 +1,4 @@
-#to work this requires "Relative editing" plugin to be active in the dope sheet
+#to work this requires Animation Auto Offset add-on ("Relative editing" in Dope Sheet) to be active
 import bpy
 from math import *  # It's considered bad practice to import everything from a library, especially when you're not using any (or just a few) of its function
 import mathutils
@@ -12,4 +12,5 @@ for armature in selected_armatures:
     # If you want to move your object, simply set its location thus:
     armature.location = ( 0, 0, 0 )
     # And you can rotate the object the same way
+
     armature.rotation_euler = (1.5708,0,0)  # Note that you need to use radians rather than angles here
