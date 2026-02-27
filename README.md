@@ -35,7 +35,7 @@ a) Automatically loads the skeleton and animation file if the folder structure a
 \[characterName]\torso_lod0.model  
 \[characterName]\skeleton\[characterName].skeleton  
 \[characterName]\animation\combined.animations  
-b) Prompt to ask user the track number for the animations  
+b) Prompt to ask user the track number for the animations - inform user what is the total number of tracks  
 c) Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks, useful for Noesis batch processing.  
 d) Automatically creates a text file with the total number of animation tracks - after the user specify a track number (the prompt will tell you the max number of tracks).  
 e) Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.
