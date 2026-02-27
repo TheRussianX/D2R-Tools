@@ -16,12 +16,12 @@ I used scale 80 to have in Blender models between 1.65m-1.9m (humans) and 4m hig
 To batch export the animations:  
 a.Generate for each animation track a Noesis scene file using the Python script, you have to know the total number of tracks  
 b.Put the Noesis scene files in the same folder as the "torso_lod0.model"/"torso_lit_lod0.model"/"torso_stp_lod0.model" is  
-C.Noesis GR2 plugin settings:  
+c.Noesis GR2 plugin settings:  
 ANIMATION_MODE = 1 (paired file)  
 SKELETON_LOAD = 1  
 MERGE_SCENE = 0  
 
-D.Noesis batch export:  
+d.Noesis batch export:  
 input: noesis  
 output: fbx  
 output path: $inpath$\$inname$.$outext$  
