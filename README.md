@@ -31,13 +31,13 @@ When you import the FBX with animations in Blender always set scale to 80. I alw
 If you only convert texture files to PNG using Noesis it will break the Normal maps (missing blue channel). When exporting model and texture at the same time the Normal maps will be fine, but there will be no ORM and SSS maps.  
 
 Change log for Noesis GR2 plugin for version 136:  
-1. Automatically loads the skeleton and animation file if the folder structure and naming is respected :  
+a) Automatically loads the skeleton and animation file if the folder structure and naming is respected :  
 \[characterName]\torso_lod0.model  
 \[characterName]\skeleton\[characterName].skeleton  
 \[characterName]\animation\combined.animations  
-2.Prompt to ask user the track number for the animations  
-3.Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks, useful for Noesis batch processing.  
-4.Automatically creates a text file with the total number of animation tracks - after the user specify a track number (the prompt will tell you the max number of tracks).  
-5.Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.
+b) Prompt to ask user the track number for the animations  
+c) Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks, useful for Noesis batch processing.  
+d) Automatically creates a text file with the total number of animation tracks - after the user specify a track number (the prompt will tell you the max number of tracks).  
+e) Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.
 
 The Barbarian player character has broken animations due to incorrect armature rotation and translation, and the Blender script will fix the animations if you have installed and active Animation Auto Offset add-on ("Relative editing" in Dope Sheet) and all the keyframes are selected. Just run the script with all the armatures holding animations in the same Blender file and this will fix it, so you can apply the resulting Blender action to the Barbarian player character.
