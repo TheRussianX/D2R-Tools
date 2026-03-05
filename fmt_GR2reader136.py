@@ -25,7 +25,7 @@ import bisect
 import re
 import zlib
 
-#================================================================
+#=============================    ===================================
 #Plugin Options
 #================================================================
 
@@ -3416,7 +3416,7 @@ def GR2Reader(data):
             a.Duration = anim.Duration # a preia caracteristica Duration de la anim
             a.Name = anim.Name #a preia caracteristica Name de la anim
             print(str(a.Name)) #doar numele ultimei animatii
-            total_anim_tracks = (len(StructHeaders.Animations)-1)
+            total_anim_tracks = (len(StructHeaders.Animations))
             alistpath = rapi.getDirForFilePath(rapi.getInputName())
             with open((alistpath+"animations_list.txt"), "a") as animationslistfile:
                 animationslistfile.write("\n")
@@ -5299,4 +5299,5 @@ def noepyLoadModel(data, mdlList):
             mdlList.append(mdl)
 
         return 1 
+
 
