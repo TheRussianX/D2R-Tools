@@ -1,18 +1,19 @@
-# root|Anim|Anim Layer will be the first imported action that will get into the last position because all other actions will be named root.001, etc
+# root|Anim|Anim Layer
 import bpy
 from bpy import context as C
 
 def rename_actions():
-    filelist = open('d:\\Download\\bpy\\animations_list.txt ', 'r')
+    number_of_track_repeats=2 # the imported model has sometimes 2-6 meshes and the anim list will have 2-6 times the same animation
+    filelist = open('..//animations_list.txt', 'r')
     if filelist != FileNotFoundError:
         data = filelist.readlines()
         actions = bpy.data.actions
-        i = 0
+        i = 1 #first line from anim list is empty
         for act in actions:
            act.name = data[i]
            print(act.name)
-           i += 1
-           if (i > len(actions)):
+           i += number_of_track_repeats #increment i by 2 when are duplicate anim names due to multiple meshes in the same model file
+           if ((i > len(actions)*number_of_track_repeats)):
                break
     else:
         print("Animation list not found")
