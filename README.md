@@ -27,6 +27,8 @@ output: fbx
 output path: $inpath$\$inname$.$outext$  
 Recursive
 
+Some models, as regurgitator1, bloodgolem, minionspawner, swarm, etc have too many meshes and Noesis will crash when attempting to load mesh + skeleton + animation for each mesh. The workaround is to copy the skeleton file from its folder to the character's main folder, rename it as skel.model and use generate_Noesis_scene_D2R_skel.py to generate a Noesis scene for each animation. This will include only the skeleton and animation, no mesh and no crash. You have to change Change fmt_GR2Reader.py options to ANIMATION_MODE = 1 and SKELETON_LOAD = 0  
+
 When you import the FBX with animations in Blender always set scale to 80. I always load all the animations in the same Blender scene and rename the actions using the exported animation name list and Blender script.  
 If you only convert texture files to PNG using Noesis it will break the Normal maps (missing blue channel). When exporting model and texture at the same time the Normal maps will be fine, but there will be no ORM and SSS maps.  
 
