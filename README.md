@@ -31,7 +31,8 @@ Some models, as regurgitator1, bloodgolem, minionspawner, swarm, etc have too ma
 
 When you import the FBX with animations in Blender always set scale to 80. I always load all the animations in the same Blender scene and rename the actions using the exported animation name list and Blender script.  
 If you only convert texture files to PNG using Noesis it will break the Normal maps (missing blue channel). When exporting model and texture at the same time the Normal maps will be fine, but there will be no ORM and SSS maps.  
-Noesis will export FBX with materials containing only diffuse map, alpha map and normal map. To fix the shaders in Blender use "Blender_fix_D2R_Noesis_shaders.py". This Blender script will add SubsurfaceScattering and OcclusionRoughnessMetalness maps to material, but only if the ORM and SSS texture files are present in subfolder "textures" relative to the Blender scene file.  
+
+Noesis will export FBX with materials containing only diffuse map, alpha map and normal map. To fix the shaders in Blender use "Blender_fix_D2R_Noesis_shaders.py". This Blender script will add SubsurfaceScattering and OcclusionRoughnessMetalness maps to material, but only if the ORM and SSS texture files are present in subfolder "textures" relative to the Blender scene file, and only if they are named like the corresponding albedo texture (example: navi_head_alb.png, navi_head_orm.png, navi_head_sss.png).  
 
 Change log for Noesis GR2 plugin for version 136:  
 a) Automatically loads the skeleton and animation file if the folder structure and naming is respected :  
