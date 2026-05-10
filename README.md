@@ -11,6 +11,8 @@ Additional parameters -fbxtexext .png -scale 80 -fbxmultitake
 Output path $inpath$\$inname$.$outext$  
 Recursive  
 
+Warning! This method sometimes merge 2 differents LODs (level of detail) of the same mesh, if the internal name of the LODs are the same (without numbers). If all your mesh names start with a number (example 0001_) you're good. If there are some meshes without the number prefix those might be 2 fused LODs. I noticed this problem with CorruptedRogue outfit, Steleton Outfit, Pantherwoman outfit.  
+
 I used scale 80 to have in Blender models between 1.65m-1.9m (humans) and 4m high (monsters). Always keep at least the Normal maps exported along model, because they will also have the blue channel (that is missing if you only convert the textures).  
 
 To batch export the animations:  
