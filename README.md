@@ -44,7 +44,7 @@ a) Automatically loads the skeleton and animation file if the folder structure a
 b) Prompt to ask user the track number for the animations - inform user what is the total number of tracks  
 c) Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks, useful for Noesis batch processing.  
 d) Automatically creates a text file with the total number of animation tracks - after the user specify a track number (the prompt will tell you the max number of tracks).  
-e) Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.
+e) Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.  
 f) Automatically creates a list of textures for the loaded model. Can be used with "read_tex_list.py" to isolate a model with all its textures, even if they come from different folders. No more missing textures on export.  
 
 The Barbarian player character has broken animations due to incorrect armature rotation and translation, and the Blender script will fix the animations if you have installed and active Animation Auto Offset add-on ("Relative editing" in Dope Sheet) and all the keyframes are selected. Just run the script with all the armatures holding animations in the same Blender file and this will fix it, so you can apply the resulting Blender action to the Barbarian player character.
