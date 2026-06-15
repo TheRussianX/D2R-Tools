@@ -5,13 +5,8 @@
 # can be found https://github.com/kangcliff/Age-of-Empires-III
 
 
-# Version 1.3.6 change log
-# Last updated 10.02.2026
-# Automatically loads the skeleton and animation file if the folder structure and naming is respected
-# Prompt to ask user the track number for the animations
-# Option to specifiy argument "-animtrack x" where x is integer smaller than total number of tracks
-# Automatically creates a text file with the total number of animation tracks after the first load of model and anim file
-# Automatically creates a list of loaded animations names the way they were stored in combined.animations, the list will continuously append new loaded animations
+# Version 1.3.5
+# Last updated 14.06.2021
 
 
 from math import *
@@ -25,7 +20,7 @@ import bisect
 import re
 import zlib
 
-#=============================    ===================================
+#================================================================
 #Plugin Options
 #================================================================
 
@@ -33,10 +28,10 @@ import zlib
 MULTIFILE = 0                       #when set to 1 all files in folder are loaded and mesh/skeleten are merged, 2 loads all meshes in folder, 3 loads all skeleton.
 SMART_DETECTION = 2                 #when comnbining meshes (MULTIFILE)  1 - check for duplicate bone names and delete, 2 - by comparing InverseWorld transform and parent bone name in addition to bone name
 #ANIMATION_TRACK = 1                 #for gr2  with multiple Tracks, choose Track to load, 1 - will load first animation, 2 second animation etc..
-ANIMATION_MODE = 1                  #switch between Animation modes, 1 - load paired animation file, 2 - load animation from main file, 0 - disable animation loading
-SKELETON_LOAD = 1                   #Enables loading a paired skeleton file (1 = on, 0 = off)
+ANIMATION_MODE = 0                  #switch between Animation modes, 1 - load paired animation file, 2 - load animation from main file, 0 - disable animation loading
+SKELETON_LOAD = 0                   #Enables loading a paired skeleton file (1 = on, 0 = off)
 MERGE_SCENE = 0                     #if set  = 1 means merge is active, 0 merge is disabled, should be used only with animation mode 2, will merge all models + skeleton + animation in chosen file to 1 model/Scene 
-CRC_CORRECTION = 0                  #Attemet fo fix CRC for modified files
+CRC_CORRECTION = 0                  #Attempt fo fix CRC for modified files
 
 #Mesh related options
 SKIP_MESH = 0                       #Use file mesh.txt to skip mesh loading: 1 - skip by mesh name, 2- skip by start with string , 3 skip by end with string
@@ -3219,6 +3214,13 @@ def GR2Reader(data):
                                    if matCount < len(PolyGroups):
                                        temp_mat = []
                                        for Tex in mat.Material.Maps:
+#Aici obtii texurile cu full path---------------------------------------------------------------------------------------------------------------------------------
+                                           fName = rapi.getInputName().split('.')[0]
+                                           with open(fName+".tex_list", "a") as tex_listfile:
+                                             
+                                               tex_listfile.write(Tex.Map.Texture.FromFileName+'\n')
+                                               tex_listfile.close()
+                                           #print(Tex.Map.Texture.FromFileName)
                                            if Tex.Map.Texture.FromFileName.lower() not in Meshtextures:
                                                 temp_mat.append(Tex.Map.Texture.FromFileName.lower())
                                        Meshtextures.append(temp_mat)
@@ -3227,6 +3229,13 @@ def GR2Reader(data):
                             #for mesh with single material
                             temp_mat = []
                             for Tex in model.MeshBindings[i].Mesh.MaterialBindings.Material.Maps:
+#Aici obtii texurile cu full path---------------------------------------------------------------------------------------------------------------------------------
+                                fName = rapi.getInputName().split('.')[0]
+                                with open(fName+".tex_list", "a") as tex_listfile:
+                                   
+                                    tex_listfile.write(Tex.Map.Texture.FromFileName+'\n')
+                                    tex_listfile.close()
+                                    #print(Tex.Map.Texture.FromFileName)
                                     if Tex.Map.Texture.FromFileName.lower() not in Meshtextures:
                                             temp_mat.append(Tex.Map.Texture.FromFileName.lower())
                             Meshtextures.append(temp_mat)
@@ -4911,6 +4920,7 @@ def LoadMeshData(model):
                    MatCount += 1
                 
             matList += matListTemp
+  
         
         if model.Meshes[i].info.Materials:
              MatCount = 0
@@ -4923,9 +4933,10 @@ def LoadMeshData(model):
                     texList += texListTemp 
                 if material:
                    matListTemp.append(material)
-                   MatCount += 1
+                   MatCount += 1             
         
              matList += matListTemp
+
             
         Indices = model.Meshes[i].mesh.Indices
         if Tangents and len(Tangents[0]) != 3:
@@ -5185,7 +5196,11 @@ def noepyLoadModel(data, mdlList):
         fileName = rapi.getInputName()
         path_list = fileName.split('\\')
         character_name = path_list[-2]
-        print(character_name)
+
+       # print(baseName)
+        print(fileName)
+       # print(character_name)
+
         PATH = rapi.getDirForFilePath(fileName)
         animations_path = PATH + "animation\\combined.animations"
         skeleton_path = PATH + "skeleton\\" + character_name + ".skeleton"
@@ -5299,5 +5314,3 @@ def noepyLoadModel(data, mdlList):
             mdlList.append(mdl)
 
         return 1 
-
-
