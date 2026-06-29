@@ -3213,32 +3213,36 @@ def GR2Reader(data):
                             for matCount,mat in enumerate(model.MeshBindings[i].Mesh.MaterialBindings):
                                    if matCount < len(PolyGroups):
                                        temp_mat = []
-                                       for Tex in mat.Material.Maps:
+
+                                       if type(mat.Material.Maps) == list:
+                                                                           
+                                           for Tex in mat.Material.Maps:
 #Aici obtii texurile cu full path---------------------------------------------------------------------------------------------------------------------------------
-                                           fName = rapi.getInputName().split('.')[0]
-                                           with open(fName+".tex_list", "a") as tex_listfile:
+                                               fName = rapi.getInputName().split('.')[0]
+                                               with open(fName+".tex_list", "a") as tex_listfile:
                                              
-                                               tex_listfile.write(Tex.Map.Texture.FromFileName+'\n')
-                                               tex_listfile.close()
-                                           #print(Tex.Map.Texture.FromFileName)
-                                           if Tex.Map.Texture.FromFileName.lower() not in Meshtextures:
-                                                temp_mat.append(Tex.Map.Texture.FromFileName.lower())
-                                       Meshtextures.append(temp_mat)
+                                                   tex_listfile.write(Tex.Map.Texture.FromFileName+'\n')
+                                                   tex_listfile.close()
+                                               #print(Tex.Map.Texture.FromFileName)
+                                               if Tex.Map.Texture.FromFileName.lower() not in Meshtextures:
+                                                   temp_mat.append(Tex.Map.Texture.FromFileName.lower())
+                                           Meshtextures.append(temp_mat)
 
                         else:
                             #for mesh with single material
                             temp_mat = []
-                            for Tex in model.MeshBindings[i].Mesh.MaterialBindings.Material.Maps:
+                            if type(model.MeshBindings[i].Mesh.MaterialBindings.Material.Maps) == list:
+                                for Tex in model.MeshBindings[i].Mesh.MaterialBindings.Material.Maps:
 #Aici obtii texurile cu full path---------------------------------------------------------------------------------------------------------------------------------
-                                fName = rapi.getInputName().split('.')[0]
-                                with open(fName+".tex_list", "a") as tex_listfile:
+                                    fName = rapi.getInputName().split('.')[0]
+                                    with open(fName+".tex_list", "a") as tex_listfile:
                                    
-                                    tex_listfile.write(Tex.Map.Texture.FromFileName+'\n')
-                                    tex_listfile.close()
-                                    #print(Tex.Map.Texture.FromFileName)
+                                        tex_listfile.write(Tex.Map.Texture.FromFileName+'\n')
+                                        tex_listfile.close()
+                                        #print(Tex.Map.Texture.FromFileName)
                                     if Tex.Map.Texture.FromFileName.lower() not in Meshtextures:
-                                            temp_mat.append(Tex.Map.Texture.FromFileName.lower())
-                            Meshtextures.append(temp_mat)
+                                        temp_mat.append(Tex.Map.Texture.FromFileName.lower())
+                                Meshtextures.append(temp_mat)
 
                         m.info.TextureMaps = Meshtextures
                 
