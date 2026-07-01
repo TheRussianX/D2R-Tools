@@ -5280,9 +5280,10 @@ def noepyLoadModel(data, mdlList):
         #condition when format is not supported and Models is equal to 0
         if Models == 0:
             return 0
-            
+
+        ctx = rapi.rpgCreateContext()    
         for model in Models:
-            ctx = rapi.rpgCreateContext()
+            
 
             if model.Bones and (MULTIFILE == 0 or MULTIFILE == 2):
                 if MERGE_SCENE ==1:
@@ -5316,5 +5317,6 @@ def noepyLoadModel(data, mdlList):
                 continue
                 
             mdlList.append(mdl)
+            rapi.rpgReset()
 
         return 1 
