@@ -47,6 +47,6 @@ d) Automatically creates a text file with the total number of animation tracks -
 e) Automatically creates a list of loaded animations names the way they were stored in combined.animations ; the list will continuously append new loaded animations until you delete the file.  
 f) Automatically creates a list of textures for the loaded model. Can be used with "read_tex_list.py" to isolate a model with all its textures, even if they come from different folders. No more missing textures on export.
 
-Added a new version of D2R texture plugin. Fixed the bug that for some ORM maps the image was black. Also now the plugin reconstruct the Blue channel for Normal Maps.  
+Added a new version of D2R texture plugin. Fixed the bug that for some ORM maps the image was black. Also now the plugin reconstruct the Blue channel for Normal Maps. Credits go to Google AI.    
 
 The Barbarian player character has broken animations due to incorrect armature rotation and translation, and the Blender script will fix the animations if you have installed and active Animation Auto Offset add-on ("Relative editing" in Dope Sheet) and all the keyframes are selected. Just run the script with all the armatures holding animations in the same Blender file and this will fix it, so you can apply the resulting Blender action to the Barbarian player character.
